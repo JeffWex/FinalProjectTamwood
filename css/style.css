@@ -1,0 +1,154 @@
+*{
+    margin: 0;
+    padding: 0;box-sizing: border-box;
+  }
+  a{
+    text-decoration: none;
+    color: white;
+  }
+  .header-class {
+    height: 100px;
+    width: 100%;
+    background-color: rgb(254, 239, 213);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+  }
+
+  #welcome-h1 {
+    color: black;
+  }
+  
+  .headerleft{
+    display: flex;
+    align-items: center;
+  }
+  .header-class h1{
+    margin-left: 50px;
+    color: white;
+  }
+  .header-class button{
+    margin-right: 30px;
+    background-color:#DC3445 ;
+  }
+  .contain{
+   width: 90%;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .title{
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+  }
+  .title h1{
+   margin-right: 50px;
+   margin-left: -20px;
+  }
+  .title button{
+  background-color: #004AAD;
+  border-radius: 20px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  }
+  .title button a{
+    color: white;
+    text-decoration: none;
+  }
+  .table{
+    display: flex;
+    justify-content: space-between;
+  }
+  td{
+    background-color: white;
+    color: black;
+    padding: 20px;
+  }
+  td button{
+    background-color: #A10B0A;
+    border-radius: 10px;
+    color: white;
+    padding: 10px;
+  }
+  .list-table{
+    width: 49%;
+    background-color: #EAEAEA;
+    padding: 20px 30px;
+    border-radius: 10px;
+    overflow: scroll;
+    max-height: 500px;
+  }
+  .list-table h2{
+    text-align: left;
+    padding-bottom: 20px;
+  }
+  .list-table table {
+    width: 100%;
+    border-spacing: 0;
+  }
+  tr th{
+    background-color: #5D18EB;
+    color: white;
+    padding: 10px;
+  }
+  .wrapper{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .form{
+    display: flex;
+    justify-content: center;
+  }
+  form{
+    border-radius: 10px;
+    width: 70%;
+    background-color:#EAEAEA ;
+    padding: 20px 20px;
+    margin-top: 20px;
+    overflow: scroll;
+  }
+  form input{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  form label{
+    margin-bottom: 5px;
+  }
+  form p{
+   margin-bottom: 5px;
+  }
+  .name{
+    display: flex;
+    gap: 10px;
+  }
+  .name input{
+    width: 50%;
+  }
+  .secrow{
+    display: flex;
+    gap: 10px;
+  }
+  .age,.phone{
+    width: 50%;
+  }
+  .age input,.phone input, .emailinp input, .passwordinp input{
+    width: 100%;
+  }
+  .thirdrow label{
+    margin-right: 20px;
+  }
+  .reg{
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+  }
+  .reg button{
+    border-radius: 10px;
+    background-color: #5D18EB;
+    color: white;
+    padding: 5px 10px;
+  }

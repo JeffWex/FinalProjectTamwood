@@ -1,0 +1,66 @@
+.header-class {
+  height: 100px;
+  background-color: rgb(254, 239, 213);
+  display: flex;
+  align-items: center;
+}
+
+.btn-accept {
+  background-color: white;
+  border-radius: 5px;
+}
+
+.check-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#welcome-h1 {
+  color: black;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+button {
+  border-radius: 20px;
+}
+
+.title-class h1 {
+  margin-left: 100px;
+}
+
+.title-class {
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.content-container {
+  margin-top: 50px;
+}
+
+table {
+  margin: auto;
+}
+
+
+.type-img {
+  width: 32px;
+  height: 32px;
+}
+
+.form-label,
+legend {
+  font-size: 1.2rem;
+}
+
+.form-check-label {
+  font-weight: 500;
+}
+#instructors-name {
+  font-weight: 600;
+  font-size: 1.2rem;
+}

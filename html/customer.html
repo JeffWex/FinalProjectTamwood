@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="../css/user.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="header-container" class="header-class container-fluid">
+        <h1 id="welcome-h1">Welcome! <span id="user-name"></span></h1>
+        <nav class="header-button-container">
+            <button type="button" class="btn btn-light">My Books</button>
+            <button type="button" class="btn btn-danger">Logout</button>
+        </nav>
+    </div>
+
+    <br>
+    <h2>All Books</h2>
+    <br>
+        <div class="table-responsive-sm container-fluid">
+            <table class="table table-primary table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">Book ID</th>
+                        <th scope="col">Book Name</th>
+                        <th scope="col">Book Author</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Price</th>
+                        <th scope="col" colspan="2">Options</th>
+                    </tr>
+                </thead>
+                <tbody class="table-light">
+                    <!-- Here goes the table contents -->
+                </tbody>
+            </table>
+        </div>
+    <!-- <button type="button" id="rent-btn" class="btn btn-primary">Rent Books</button> -->
+        
+</body>
+<script type="module">
+    import XMLReq from "../javascript/XMLReq.js";
+    import book from "../javascript/bookClass.js";
+
+    let xmlReq = new XMLReq("http://localhost/Library-CMS/php/customer.php");
+    let cid = sessionStorage.getItem("cid");
+
+    let bList = [];
+    let bookObj = null;
+
+    // let rentBtn = document.getElementById("rent-btn");
+    // rentBtn.addEventListener("click", ()=>{
+    //     let reqData = new FormData();   
+    //       reqData.append("mode", "rent-books");
+    //       reqData.append("cid", cid);
+    //       xmlReq.Post(reqData).then(
+    //         alert("Books rented!"),
+    //         (rej)=>console.log(rej)
+    //       )
+    // });
+
+    let logoutBtn = document.querySelectorAll("button")[1];
+    logoutBtn.addEventListener("click", ()=>{
+        sessionStorage.removeItem("cid");
+        location.replace("./login.html");
+    });
+
+    let mbBtn = document.querySelectorAll("button")[0];
+    mbBtn.addEventListener("click", ()=>{
+        location.replace("./customer_books.html");
+    });
+
+    const tablePoper=()=>{
+        const tbody = document.querySelectorAll("tbody")[0];
+        // console.log(bList);
+        for (let req of bList) {
+            tbody.append(req.toRow());
+        };
+    };
+
+    const loadData=(data)=>{
+        let bookData = JSON.parse(data);
+        // console.log(bookData);
+        for(let item of bookData) {
+            bookObj = new book(item.id, item.book_name, item.book_author, item.category, item.quantity, item.price);
+            bList.push(bookObj);
+        };
+        tablePoper();
+    };
+    
+    const load =()=>{
+        let reqData = new FormData();   
+        reqData.append("mode", "all-books");
+        reqData.append("cid", cid);
+        xmlReq.Post(reqData).then(
+            loadData,
+            (rej)=>console.log(rej)
+        )
+    }
+    load();
+</script>
+</html>
+
+
+

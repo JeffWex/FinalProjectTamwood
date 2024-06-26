@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="Admin_style.css">
+
+</head>
+<body>
+    <header>
+        <nav>
+            <form class="navbar">
+
+                <div>
+                    <a href="Adm_book.html">Book</a>
+                    <a href="Adm_userReport.html">Users Report</a>
+                    <a href="Adm_orderSales.html">Order & Rents</a>
+                </div>
+            </form>
+        </nav>
+    </header>
+
+    <button type="button" class="btn btn-danger" id="admLogout">Logout</button>
+    <div class="container">
+        <h1 class="text-center">Books</h1>
+        
+        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addMenuModal">
+            Add Books
+        </button>
+        <label id="labelName" hidden="true">Name: </label>
+        <input type="text" name="name" id="name" hidden="true">
+
+        <label id="labelAmount" hidden="true">Amount: </label>
+        <input type="number" name="amount" id="amountUpd" hidden="true">
+
+        <label id="labelPrice" hidden="true">Price: </label>
+        <input type="number" name="price" id="priceUpd" hidden="true">
+
+        <label id="labelCateg" hidden="true">Category</label>
+        <select name="categUpd" id="categUpd" hidden="true">
+            <option value="Fantasy">Fantasy</option>
+            <option value="Romance">Romance</option>
+            <option value="Sci-Fi">Sci-Fi</option>
+            <option value="Drama">Drama</option>
+            <option value="Mystery">Mystery</option>
+            <option value="Historical">Historical</option>
+            <option value="Biography">Biography</option>
+            <option value="Horror">Horror</option>
+          </select>
+
+        <button id="updateBtn" hidden="true">Update</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Book</th>
+                    <th scope="col">Author</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Category</th>
+                </tr>
+            </thead>
+            <tbody id="menuTable">
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add Menu Modal -->
+    <div class="modal fade" id="addMenuModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Add Books</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addMenuForm">
+                        <div class="form-group">
+                            <label for="book">Book Name</label>
+                            <input type="text" class="form-control" id="book" name="book" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount</label>
+                            <input type="number" class="form-control" id="amount" name="amount" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="number" class="form-control" id="price" name="price" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categ">Category</label>
+                            <select name="categ" id="categ">
+                                <option value="Fantasy">Fantasy</option>
+                                <option value="Romance">Romance</option>    
+                                <option value="Sci-Fi">Sci-Fi</option>
+                                <option value="Drama">Drama</option>
+                                <option value="Mystery">Mystery</option>
+                                <option value="Historical">Historical</option>
+                                <option value="Biography">Biography</option>
+                                <option value="Horror">Horror</option>
+                              </select>
+                            <!-- <input type="text" class="form-control" id="category" name="category" required> -->
+
+                        </div>
+                        <div class="form-group">
+                            <label for="descr">Author</label>
+                            <input type="text" class="form-control" id="description" name="description" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="addMenuBtn">Add</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="Adm_book.js"></script>
+</body>
+</html>
